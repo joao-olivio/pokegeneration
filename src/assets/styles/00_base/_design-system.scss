@@ -1,0 +1,16 @@
+.ds-grid {
+  display: grid; 
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  grid-template-rows: 100px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.ds-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
