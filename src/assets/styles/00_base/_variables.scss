@@ -1,0 +1,79 @@
+$font-family-base: 'Roboto', sans-serif;
+
+// https://getbootstrap.com/docs/5.0/layout/breakpoints/
+$breakpoint-md: rem(768px);
+$breakpoint-lg: rem(992px);
+$breakpoint-xl: rem(1200px);
+$breakpoint-xxl: rem(1400px);
+
+
+$color-black: #000000;
+$color-white: #FFFFFF;
+
+// https://chir.ag/projects/name-that-color
+// https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51
+
+
+$color-blue-dianne: #264653;
+$color-jungle-green: #2a9d8f;
+$color-rob-roy: #e9c46a;
+$color-sandy-brown: #f4a261;
+$color-burnt-sienna: #e76f51;
+
+//https://getbootstrap.com/docs/5.0/layout/containers/
+$container-sm: rem(540px);
+$container-md: rem(720px);
+$container-lg: rem(960px);
+$container-xl: rem(1140px);
+$container-xxl: rem(1320px);
+
+// https://learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
+$font-size-heading: rem(32px);
+$font-size-base: rem(16px);
+$font-size-seconadry: rem(14px);
+$font-size-label: rem(12px);
+
+$opacity-0-7: 0.7;
+$opacity-0-9: 0.9;
+$opacity-1-0: 1;
+
+
+$margin-bottom-sm: rem(16px);
+$margin-bottom-md: rem(32px);
+$margin-bottom-lg: rem(48px);
+
+$gutter-sm: rem(8px);
+$gutter-md: rem(12px);
+$gutter-lg: rem(16px);
+
+$border-radius-xs: rem(4px);
+$border-radius-sm: rem(8px);
+$border-radius-md: rem(16px);
+$border-radius-lg: rem(32px);
+$border-radius-xl: rem(32px);
+
+$item-per-row-sm: 2;
+$items-per-row-md: 3;
+$items-per-row-lg: 4;
+$items-per-row-xl: 5;
+$items-per-row-xxl: 5;
+
+
+$pokemon-type-bug: #000;
+$pokemon-type-dark: #000;
+$pokemon-type-dragon: #000;
+$pokemon-type-electric: #000;
+$pokemon-type-fairy: #000;
+$pokemon-type-fight: #000;
+$pokemon-type-fire: #000;
+$pokemon-type-flying: #000;
+$pokemon-type-ghost: #000;
+$pokemon-type-grass: #000;
+$pokemon-type-ground: #000;
+$pokemon-type-ice: #000;
+$pokemon-type-normal: #000;
+$pokemon-type-poison: #000;
+$pokemon-type-psychic: #000;
+$pokemon-type-rock: #000;
+$pokemon-type-steel: #000;
+$pokemon-type-water: #000;

@@ -1,0 +1,16 @@
+.card {
+  &__image_wrapper {
+    position: relative;
+
+    @include aspect-ratio(1,1);
+
+    &__image {
+      position: absolute;
+
+    }
+  }
+
+  &__content_wrapper {
+
+  }
+}

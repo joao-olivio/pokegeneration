@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "develop": "vue-cli-service build --mode development --watch",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "fractal-webpack-plugin": "^4.1.0",
+    "sass-rem": "^3.0.0",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
   },

@@ -1,0 +1,86 @@
+.badge {
+  border-radius: $border-radius-xs;
+  font-size: $font-size-label;
+  color: $color-white;
+  padding: rem(5px 10px);
+  text-decoration: none;
+  opacity: $opacity-0-7;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:focus, &:hover {
+    opacity: $opacity-1-0;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &--bug {
+    background-color: $pokemon-type-bug;
+  }
+
+  &--dark {
+    background-color: $pokemon-type-dark;
+  }
+
+  &--dragon {
+    background-color: $pokemon-type-dragon;
+  }
+
+  &--electric {
+    background-color: $pokemon-type-electric;
+  }
+
+  &--fairy {
+    background-color: $pokemon-type-fairy;
+  }
+
+  &--fight {
+    background-color: $pokemon-type-fight;
+  }
+
+  &--fire {
+    background-color: $pokemon-type-fire;
+  }
+
+  &--flying {
+    background-color: $pokemon-type-flying;
+  }
+
+  &--ghost {
+    background-color: $pokemon-type-ghost;
+  }
+
+  &--grass {
+    background-color: $pokemon-type-grass;
+  }
+
+  &--ground {
+    background-color: $pokemon-type-ground;
+  }
+
+  &--ice {
+    background-color: $pokemon-type-ice;
+  }
+
+  &--normal {
+    background-color: $pokemon-type-normal;
+  }
+
+  &--poison {
+    background-color: $pokemon-type-poison;
+  }
+
+  &--psychic {
+    background-color: $pokemon-type-psychic;
+  }
+
+  &--rock {
+    background-color: $pokemon-type-rock;
+  }
+
+  &--steel {
+    background-color: $pokemon-type-steel;
+  }
+
+  &--water {
+    background-color: $pokemon-type-water;
+  }
+}

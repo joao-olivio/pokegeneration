@@ -1,0 +1,9 @@
+.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+.before-enter {
+  opacity: 0;
+  transform: translateY(rem(75px));
+  transition: all .7s ease;
+}
