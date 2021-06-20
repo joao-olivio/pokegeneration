@@ -3,12 +3,10 @@
     <div class="card__image_wrapper">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-        :alt="alternativeText"
-        class="card__image_wrapper__image"
+        alt="{{this.alternativeText}}"
+        class="card__image_wrapper__image" 
+        v-lazyload="{{json this.image}}"
       />
     </div>
-  </template>
-  <template>
-    
   </template>
 </card>

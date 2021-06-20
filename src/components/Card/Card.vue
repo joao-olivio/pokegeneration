@@ -12,15 +12,14 @@ export default {
   props: {
     cardType: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: "default",
+    },
   },
   computed: {
     cardClass() {
-      return [
-        this.cardType ? `card--${this.cardType}`: ''
-      ]
-    }
+      return [this.cardType ? `card--${this.cardType}` : ""];
+    },
   },
 };
 </script>

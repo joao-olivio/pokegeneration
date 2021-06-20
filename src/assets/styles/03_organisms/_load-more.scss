@@ -1,0 +1,42 @@
+.load-more {
+  &__content {
+    display: grid;
+    grid-auto-rows: 1fr;
+    
+    &--pokemon {
+      grid-template-columns: repeat($items-per-row-sm, 1fr);
+      grid-row-gap: $gutter-sm;
+      grid-column-gap: $gutter-sm;
+
+      @include for-medium {
+        grid-template-columns: repeat($items-per-row-md, 1fr);
+      }
+
+      @include for-large {
+        grid-template-columns: repeat($items-per-row-lg, 1fr);
+        grid-row-gap: $gutter-xl;
+        grid-column-gap: $gutter-xl;
+      }
+
+      @include for-extra-large {
+        grid-template-columns: repeat($items-per-row-xl, 1fr);
+      }
+
+      @include for-double-extra-large {
+        grid-template-columns: repeat($items-per-row-xxl, 1fr);
+      }
+    }
+
+    &--generations {
+      grid-template-columns: repeat($items-per-row-lg, 1fr);
+      grid-row-gap: $gutter-md;
+      grid-column-gap: $gutter-md;
+
+      @include for-large {
+        grid-template-columns: repeat(($items-per-row-xl, 1fr));
+        grid-row-gap: $gutter-xl;
+        grid-column-gap: $gutter-xl;
+      }
+    }
+  }
+}

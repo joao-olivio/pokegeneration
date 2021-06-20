@@ -3,8 +3,9 @@
     <div class="card__image_wrapper">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-        :alt="alternativeText"
-        class="card__image_wrapper__image"
+        alt="{{alternativeText}}"
+        class="card__image_wrapper__image content"
+        v-lazyload="{{json this.image}}"
       />
     </div>
   </template>
@@ -13,12 +14,8 @@
       <small class="card__content_wrapper__small small">{{ number }}</small>
       <h3 class="card__content_wrapper__title title title--h3">{{ title }}</h3>
       <div class="card__content_wrapper__badges">
-        <Badge
-          :text="type.text"
-          :link="type.link"
-          v-for="(type, $key) in types"
-          :key="$key"
-        />
+        {{render '@badge--poison'}}
+        {{render '@badge--grass'}}
       </div>
     </div>
   </template>

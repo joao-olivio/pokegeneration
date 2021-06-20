@@ -1,16 +1,74 @@
 .card {
-  &__image_wrapper {
-    position: relative;
+  $root: &;
+  border-radius: $border-radius-md;
 
-    @include aspect-ratio(1,1);
+  a {
+    text-decoration: none;
+  }
 
-    &__image {
-      position: absolute;
+  &--pokemon {
+    background-color: $color-chamois;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+    transition: all .45s cubic-bezier(0.075, 0.82, 0.165, 1);
 
+    &:hover {
+      box-shadow: 0 7px 30px -10px rgba(150,170,180,0.9);
+      transition: all .95s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    #{$root} {
+      &__image_wrapper {
+        @include aspect-ratio(1,1);
+    
+        &__image {
+          position: absolute;
+          height: 100%;
+        }
+      }
+    
+      &__content_wrapper {
+        padding: $gutter-md $gutter-sm;
+    
+        @include for-medium {
+          padding: $gutter-xl $gutter-sm;
+        }
+    
+        &__small {
+          margin-bottom: $margin-bottom-xs;
+          display: block;
+        }
+    
+        &__title {
+          margin-bottom: $margin-bottom-sm;
+        }
+      }
     }
   }
 
-  &__content_wrapper {
+  &--generation {
+    border-radius: 50%;
+    background-color: $color-blue-stone;
+    transition: all .45s cubic-bezier(0.075, 0.82, 0.165, 1);
 
+    &:hover {
+      box-shadow: 0 7px 30px -10px rgba(150,170,180,0.9);
+    }
+
+    #{$root} {
+      &__content_wrapper {
+        @include aspect-ratio(1,1);
+        
+        & > a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &__title {
+          font-size: $font-size-heading-xl;
+          color: $color-chamois;
+        }
+      }
+    }
   }
 }

@@ -1,26 +1,18 @@
 <template>
   <div class="load-more">
-    <div class="load-more__content">
-      <slot />
-    </div>
-    <router-link></router-link>
+    <slot :items="items" />
+    <slot name="footer" />
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'load-more',
+  name: "load-more",
   props: {
-    pageRedirect: {
-      type: String,
-      required: true
-    }
-  }
-}
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
+};
 </script>
-
-<style>
-
-</style>

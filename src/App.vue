@@ -5,15 +5,10 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
-  components: {
-
-  },
+  components: {},
 };
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

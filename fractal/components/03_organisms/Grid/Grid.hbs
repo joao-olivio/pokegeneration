@@ -1,0 +1,9 @@
+<load-more items="{{json this.items}}">
+  <template #default="slotProps">
+    <ul class="load-more__content">
+      <li class="load-more__content__item" v-for="(item, $key) in slotProps.items" v-bind:key="$key">
+        <!-- generation card goes here -->
+      </li>
+    </ul>
+  </template>
+</load-more>

@@ -1,0 +1,82 @@
+.banner {
+  $root: &;
+  @include aspect-ratio(300, 450);
+
+  @include for-medium {
+    @include aspect-ratio(16, 9);
+  }
+
+  &__image_wrapper {
+    z-index: -1;
+
+    &__image {
+      width: 100%;
+
+      @include for-medium {
+        width: auto;
+        height: 100%;
+      }
+      
+    }
+  }
+
+  &.before-enter {
+    #{$root} {
+      &__content {
+        opacity: 0;
+        transform: translateY(rem(-275px));
+        transition: all 3s ease;
+      }
+    }
+  }
+
+  &.enter {
+    #{$root} {
+      &__content {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 3s ease;
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    right: 0;
+
+    @include for-medium {
+      bottom: 0;
+      top: auto;
+      text-align: right;
+      margin-bottom: rem(100px);
+      padding: 0 $gutter-xl;
+    }
+
+    @include for-large {
+      margin-bottom: rem(160);
+      padding: 0 $gutter-xxl;
+    }
+
+    @include for-extra-large {
+      margin-bottom: rem(240px);
+    }
+  
+    &__title, &__subtitle {
+      color: $color-white;
+    }
+
+    &__title {
+      font-size: $font-size-heading-xxl;
+      margin-bottom: $margin-bottom-md;
+      font-weight: 500;
+    }
+
+    &__subtitle {
+      font-size: $font-size-heading-lg;
+      font-weight: 100;
+      font-style: italic;
+    }
+  }
+}

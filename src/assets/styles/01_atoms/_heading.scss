@@ -1,0 +1,21 @@
+.title {
+  color: $color-swamp;
+
+  &--h3 {
+    font-size: $font-size-heading-sm;
+
+    @include for-medium {
+      font-size: $font-size-heading-md;
+    }
+
+    @include for-large {
+      font-size: $font-size-heading-lg;
+    }
+  }
+}
+
+.small {
+  opacity: $opacity-0-9;
+  color: $color-swamp;
+  font-size: $font-size-label;
+}
