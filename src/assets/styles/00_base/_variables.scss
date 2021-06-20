@@ -11,14 +11,18 @@ $color-black: #000000;
 $color-white: #FFFFFF;
 
 // https://chir.ag/projects/name-that-color
-// https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51
+// https://coolors.co/001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226
 
-
-$color-blue-dianne: #264653;
-$color-jungle-green: #2a9d8f;
-$color-rob-roy: #e9c46a;
-$color-sandy-brown: #f4a261;
-$color-burnt-sienna: #e76f51;
+$color-swamp: #001219;
+$color-blue-stone: #005F73;
+$color-blue-chill: #0A9396;
+$color-vista-blue: #94D2BD;
+$color-chamois: #E9D8A6;
+$color-orange-peel: #EE9B00;
+$color-indochine: #CA6702;
+$color-fire: #BB3E03;
+$color-tabasco: #AE2012;
+$color-mexican-red: #9B2226;
 
 //https://getbootstrap.com/docs/5.0/layout/containers/
 $container-sm: rem(540px);
@@ -28,7 +32,12 @@ $container-xl: rem(1140px);
 $container-xxl: rem(1320px);
 
 // https://learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
-$font-size-heading: rem(32px);
+$font-size-heading-xs: rem(20px);
+$font-size-heading-sm: rem(24px);
+$font-size-heading-md: rem(28px);
+$font-size-heading-lg: rem(32px);
+$font-size-heading-xl: rem(36px);
+$font-size-heading-xxl: rem(48px);
 $font-size-base: rem(16px);
 $font-size-seconadry: rem(14px);
 $font-size-label: rem(12px);
@@ -37,7 +46,7 @@ $opacity-0-7: 0.7;
 $opacity-0-9: 0.9;
 $opacity-1-0: 1;
 
-
+$margin-bottom-xs: rem(8px);
 $margin-bottom-sm: rem(16px);
 $margin-bottom-md: rem(32px);
 $margin-bottom-lg: rem(48px);
@@ -45,6 +54,8 @@ $margin-bottom-lg: rem(48px);
 $gutter-sm: rem(8px);
 $gutter-md: rem(12px);
 $gutter-lg: rem(16px);
+$gutter-xl: rem(20px);
+$gutter-xxl: rem(24px);
 
 $border-radius-xs: rem(4px);
 $border-radius-sm: rem(8px);
@@ -52,7 +63,7 @@ $border-radius-md: rem(16px);
 $border-radius-lg: rem(32px);
 $border-radius-xl: rem(32px);
 
-$item-per-row-sm: 2;
+$items-per-row-sm: 2;
 $items-per-row-md: 3;
 $items-per-row-lg: 4;
 $items-per-row-xl: 5;
