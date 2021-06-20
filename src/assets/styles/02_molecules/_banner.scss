@@ -55,12 +55,12 @@
     }
 
     @include for-large {
-      margin-bottom: rem(160);
+      margin-bottom: rem(260px);
       padding: 0 $gutter-xxl;
     }
 
     @include for-extra-large {
-      margin-bottom: rem(240px);
+      margin-bottom: rem(340px);
     }
   
     &__title, &__subtitle {

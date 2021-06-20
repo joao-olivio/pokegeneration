@@ -1,6 +1,6 @@
 import Pokemon from "../pages/Pokemon.vue";
 
 export default {
-  path: "/",
+  path: "/pokemon",
   component: Pokemon,
 };

@@ -65,8 +65,12 @@
         }
 
         &__title {
-          font-size: $font-size-heading-xl;
+          font-size: $font-size-heading-md;
           color: $color-chamois;
+
+          @include for-medium {
+            font-size: $font-size-heading-sm;
+          }
         }
       }
     }

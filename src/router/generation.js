@@ -1,6 +1,6 @@
 import Generation from "../pages/Generation.vue";
 
 export default {
-  path: "/",
+  path: "/generation/:slug",
   component: Generation,
 };

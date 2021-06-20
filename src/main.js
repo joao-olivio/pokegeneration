@@ -7,6 +7,10 @@ import Badge from "./components/Badge/Badge.vue";
 import Card from "./components/Card/Card.vue";
 import LoadMore from "./components/LoadMore/LoadMore.vue";
 
+import HomepagePage from "./pages/Homepage.vue";
+import GenerationPage from "./pages/Generation.vue";
+import PokemonPage from "./pages/Pokemon.vue";
+
 import { lazyload } from "./directives/lazyload.client";
 import { animateOnScroll } from "./directives/animateOnScroll.client";
 
@@ -20,6 +24,10 @@ Vue.directive(animateOnScroll.name, animateOnScroll);
 Vue.component(Badge.name, Badge);
 Vue.component(Card.name, Card);
 Vue.component(LoadMore.name, LoadMore);
+
+Vue.component(HomepagePage.name, HomepagePage);
+Vue.component(GenerationPage.name, GenerationPage);
+Vue.component(PokemonPage.name, PokemonPage);
 
 new Vue({
   el: "#app",

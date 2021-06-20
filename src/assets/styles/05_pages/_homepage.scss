@@ -1,0 +1,35 @@
+.homepage {
+  &__heading {
+    margin-bottom: $margin-bottom-md;
+
+    @include for-medium {
+      margin-bottom: $margin-bottom-lg;
+    }
+  }
+
+  &__body {
+    &__title {
+      margin-bottom: $margin-bottom-xs;
+
+      @include for-large {
+        margin-bottom: $margin-bottom-sm;
+      }
+    }
+
+    &__subtitle {
+      font-size: $font-size-heading-xs;
+      font-weight: 100;
+      font-style: italic;
+      margin-bottom: $margin-bottom-xs;
+
+      @include for-medium {
+        font-size: $font-size-heading-md;
+        margin-bottom: $margin-bottom-md;
+      }
+
+      @include for-large {
+        font-size: $font-size-heading-lg;
+      }
+    }
+  }
+}
