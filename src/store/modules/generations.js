@@ -12,6 +12,7 @@ import {
   FETCH_GENERATION_BY_ID,
   SET_GENERATION_IS_LOADING,
   GET_GENERATION_IS_LOADING,
+  GENERATION_RESET_DATA,
 } from "../settings";
 
 import { generationDataTransformer } from "../../utils/generationDataTransformer";
@@ -25,6 +26,7 @@ export const state = {
 export const actions = {
   [FETCH_GENERATION_DATA]: ({ dispatch, commit }) => {
     dispatch(SET_GENERATION_IS_LOADING, true);
+    commit(GENERATION_RESET_DATA);
     axios
       .get(`${GENERATION_API_URL}`)
       .then(({ data }) => {
@@ -96,5 +98,9 @@ export const mutations = {
   },
   [SET_GENERATIONS_LIST]: (state, payload) => {
     Vue.set(state, "generationsList", payload);
+  },
+  [GENERATION_RESET_DATA]: (state) => {
+    Vue.set(state, "generations", []);
+    Vue.set(state, "generationsList", []);
   },
 };

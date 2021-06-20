@@ -12,6 +12,7 @@ export const SET_POKEMON_DATA = "set_pokemon_data";
 
 // GENERATIONS SETTINGS
 export const GENERATION_API_URL = `${API_DEFAULT_URL}/generation/`;
+export const GENERATION_RESET_DATA = "genration_reset_data";
 
 export const GET_GENERATIONS = "get_generations";
 export const GET_GENERATION_BY_ID = "get_generation_by_id";
