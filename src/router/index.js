@@ -5,9 +5,11 @@ import generation from "./generation";
 import homepage from "./homepage";
 import pokemon from "./pokemon";
 
+const defaultPath = { path: "*", redirect: "/" };
+
 Vue.use(VueRouter);
 
-const routes = [generation, homepage, pokemon];
+const routes = [generation, homepage, pokemon, defaultPath];
 
 export default new VueRouter({
   routes,

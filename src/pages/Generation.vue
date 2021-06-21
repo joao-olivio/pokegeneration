@@ -62,7 +62,8 @@ export default {
   },
   mounted() {
     this[SET_GENERATION_IS_LOADING](true);
-    if (!this.$route.params.slug) this.$router.push("/");
+
+    if (this.$route.params.slug) this[SET_GENERATION_IS_LOADING](false);
 
     if (!this.getCurrentRegion) {
       this[FETCH_GENERATION_DATA]();
@@ -76,11 +77,6 @@ export default {
     ]),
     pokemonListFullInformation() {
       return this.getCurrentRegion ? this.getCurrentRegion.pokemons : [];
-    },
-    generationTitle() {
-      return !this.showAllGenerations
-        ? this[GET_GENERATION_BY_ID](this.slug).name
-        : "All generations";
     },
     getCurrentRegion() {
       return this[GET_GENERATION_BY_ID](this.slug);

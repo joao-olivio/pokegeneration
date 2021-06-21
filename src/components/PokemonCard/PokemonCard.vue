@@ -13,14 +13,13 @@
     </template>
     <template>
       <div class="card__content_wrapper">
-        <router-link :to="pokemon.url">
-          <small class="card__content_wrapper__small small">
-            {{ normalizedNumber }}
-          </small>
-          <h3 class="card__content_wrapper__title title title--h3">
-            {{ pokemonName }}
-          </h3>
-        </router-link>
+        <small class="card__content_wrapper__small small">
+          {{ normalizedNumber }}
+        </small>
+        <h3 class="card__content_wrapper__title title title--h3">
+          {{ pokemonName }}
+        </h3>
+
         <div class="card__content_wrapper__badges">
           <badge
             v-for="(type, $id) in pokemon.type"
