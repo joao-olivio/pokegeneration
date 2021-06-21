@@ -1,3 +1,5 @@
+import { POKEMON_BASE_URL } from "../router/settings";
+
 export const pokemonDataTransformer = (pokemonData) => {
   return {
     image: {
@@ -7,5 +9,6 @@ export const pokemonDataTransformer = (pokemonData) => {
     name: pokemonData.name,
     number: pokemonData.id,
     type: pokemonData.types,
+    url: `${POKEMON_BASE_URL}${pokemonData.name}`,
   };
 };

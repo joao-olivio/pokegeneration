@@ -18,7 +18,10 @@
       </div>
     </section>
     <section class="generation-page__body container">
-      <LoadMore :items="pokemonListFullInformation" v-if="!showAllGenerations">
+      <LoadMore
+        :items="pokemonListFullInformation"
+        v-if="!showAllGenerations && !isFetchingData"
+      >
         <template #default="slotProps">
           <ul class="load-more__content load-more__content--pokemon">
             <li v-for="(pokemon, $key) in slotProps.items" :key="$key">
@@ -35,12 +38,14 @@
                 </template>
                 <template>
                   <div class="card__content_wrapper">
-                    <small class="card__content_wrapper__small small">
-                      {{ pokemon.number }}
-                    </small>
-                    <h3 class="card__content_wrapper__title title title--h3">
-                      {{ pokemon.name }}
-                    </h3>
+                    <router-link :to="pokemon.url">
+                      <small class="card__content_wrapper__small small">
+                        {{ pokemon.number }}
+                      </small>
+                      <h3 class="card__content_wrapper__title title title--h3">
+                        {{ pokemon.name }}
+                      </h3>
+                    </router-link>
                     <div class="card__content_wrapper__badges">
                       <badge
                         v-for="(type, $id) in pokemon.type"
@@ -55,6 +60,7 @@
           </ul>
         </template>
       </LoadMore>
+      <h2 v-if="isFetchingData">Loading...</h2>
     </section>
   </main>
 </template>
@@ -90,7 +96,7 @@ export default {
       GET_POKEMON_IS_LOADING,
     ]),
     pokemonListFullInformation() {
-      return this[GET_POKEMON_IS_LOADING] ? [] : this[GET_POKEMONS];
+      return this[GET_POKEMON_IS_LOADING] ? [] : this[GET_POKEMONS](this.slug);
     },
     generationTitle() {
       return !this.showAllGenerations
@@ -108,15 +114,25 @@ export default {
     showAllGenerations() {
       return this.slug === undefined;
     },
+
+    isFetchingData() {
+      return this[GET_POKEMON_IS_LOADING];
+    },
   },
   methods: {
     ...mapActions([FETCH_POKEMON_BY_ID, SET_POKEMON_IS_LOADING]),
     getPokemonsFromGeneration() {
+      if (this.pokemonListFullInformation) return;
       if (this.slug) {
         this[SET_POKEMON_IS_LOADING](true);
         const promiseList = [];
         this.getCurrentRegion.pokemons.forEach((pokemon) => {
-          promiseList.push(this[FETCH_POKEMON_BY_ID](pokemon.name));
+          promiseList.push(
+            this[FETCH_POKEMON_BY_ID]({
+              generation: this.slug,
+              pokemon: pokemon.name,
+            })
+          );
         });
         Promise.all(promiseList).then(() => {
           this[SET_POKEMON_IS_LOADING](false);
