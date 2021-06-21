@@ -88,8 +88,9 @@ export const getters = {
 export const mutations = {
   [SET_GENERATION_DATA]: (state, payload) => {
     const generation = generationDataTransformer(payload);
-    const transformer = [...state.generations];
+    let transformer = [...state.generations];
     transformer.push(generation);
+    transformer = transformer.sort((a, b) => a.id - b.id);
     Vue.set(state, "generations", transformer);
   },
   [SET_GENERATION_IS_LOADING]: (state, payload) => {

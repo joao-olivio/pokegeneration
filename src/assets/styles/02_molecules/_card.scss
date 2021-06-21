@@ -41,6 +41,12 @@
         &__title {
           margin-bottom: $margin-bottom-sm;
         }
+
+        &__badges {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-column-gap: $gutter-sm;
+        }
       }
     }
   }

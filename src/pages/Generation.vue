@@ -7,13 +7,20 @@
           <h1 class="banner__content__title title title--h1">
             {{ generationTitle }}
           </h1>
+          <h3 class="banner__content__content-item">
+            <strong>Main region: </strong> {{ getCurrentRegion.mainRegion }}
+          </h3>
+          <h3>
+            <strong>Number of new Pokemons: </strong>
+            {{ getCurrentRegion.pokemons.length }}
+          </h3>
         </div>
       </div>
     </section>
-    <section class="generation-page__body">
+    <section class="generation-page__body container">
       <LoadMore :items="pokemonListFullInformation" v-if="!showAllGenerations">
         <template #default="slotProps">
-          <ul>
+          <ul class="load-more__content load-more__content--pokemon">
             <li v-for="(pokemon, $key) in slotProps.items" :key="$key">
               <card card-type="pokemon">
                 <template #image>
@@ -36,9 +43,9 @@
                     </h3>
                     <div class="card__content_wrapper__badges">
                       <badge
-                        v-for="(type, $id) in pokemon.types"
+                        v-for="(type, $id) in pokemon.type"
                         :key="$id"
-                        :title="type.name"
+                        :text="type.type.name"
                       />
                     </div>
                   </div>
@@ -53,8 +60,15 @@
 </template>
 
 <script>
-import { GET_GENERATIONS, GET_GENERATION_BY_ID } from "../store/settings";
-import { mapGetters } from "vuex";
+import {
+  FETCH_POKEMON_BY_ID,
+  GET_GENERATIONS,
+  GET_GENERATION_BY_ID,
+  GET_POKEMONS,
+  GET_POKEMON_IS_LOADING,
+  SET_POKEMON_IS_LOADING,
+} from "../store/settings";
+import { mapGetters, mapActions } from "vuex";
 import LoadMore from "../components/LoadMore/LoadMore.vue";
 import Badge from "../components/Badge/Badge.vue";
 export default {
@@ -66,20 +80,48 @@ export default {
     };
   },
   mounted() {
-    console.log("mamamaaaaa");
+    this.getPokemonsFromGeneration();
   },
   computed: {
-    ...mapGetters([GET_GENERATIONS, GET_GENERATION_BY_ID]),
+    ...mapGetters([
+      GET_GENERATIONS,
+      GET_GENERATION_BY_ID,
+      GET_POKEMONS,
+      GET_POKEMON_IS_LOADING,
+    ]),
     pokemonListFullInformation() {
-      return [];
+      return this[GET_POKEMON_IS_LOADING] ? [] : this[GET_POKEMONS];
     },
     generationTitle() {
       return !this.showAllGenerations
         ? this[GET_GENERATION_BY_ID](this.slug).name
         : "All generations";
     },
+    generationPokemonNumber() {
+      return 0;
+    },
+
+    getCurrentRegion() {
+      return this[GET_GENERATION_BY_ID](this.slug);
+    },
+
     showAllGenerations() {
       return this.slug === undefined;
+    },
+  },
+  methods: {
+    ...mapActions([FETCH_POKEMON_BY_ID, SET_POKEMON_IS_LOADING]),
+    getPokemonsFromGeneration() {
+      if (this.slug) {
+        this[SET_POKEMON_IS_LOADING](true);
+        const promiseList = [];
+        this.getCurrentRegion.pokemons.forEach((pokemon) => {
+          promiseList.push(this[FETCH_POKEMON_BY_ID](pokemon.name));
+        });
+        Promise.all(promiseList).then(() => {
+          this[SET_POKEMON_IS_LOADING](false);
+        });
+      }
     },
   },
 };

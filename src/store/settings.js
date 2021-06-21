@@ -6,6 +6,8 @@ export const GET_POKEMONS = "get_pokemons";
 export const GET_POKEMON_BY_ID = "get_pokemon_by_id";
 export const GET_POKEMON_FROM_GENERATION = "get_pokemon_from_generation";
 export const GET_POKEMON_IS_LOADING = "pokemon_is_loading";
+export const FETCH_POKEMON_DATA = "fetch_pokemon_data";
+export const FETCH_POKEMON_BY_ID = "fetch_pokemon_by_id";
 
 export const SET_POKEMON_IS_LOADING = "set_pokemon_is_loading";
 export const SET_POKEMON_DATA = "set_pokemon_data";
@@ -25,3 +27,6 @@ export const SET_GENERATION_IS_LOADING = "set_generation_is_loading";
 
 export const FETCH_GENERATION_DATA = "fetch_generation_data";
 export const FETCH_GENERATION_BY_ID = "fetch_generation_by_id";
+
+export const UPDATE_POKEMON_NUMBER_ON_EACH_GENERATION =
+  "update_pokemon_number_on_each_generation";

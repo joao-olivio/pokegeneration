@@ -2,10 +2,12 @@ import Vue from "vue";
 import axios from "axios";
 import {
   POKEMON_API_URL,
-  POKEMON_IS_LOADING,
+  SET_POKEMON_IS_LOADING,
+  GET_POKEMON_IS_LOADING,
   GET_POKEMON_BY_ID,
   SET_POKEMON_DATA,
   GET_POKEMONS,
+  FETCH_POKEMON_BY_ID,
 } from "../settings";
 
 import { pokemonDataTransformer } from "../../utils/pokemonDataTransformer";
@@ -16,22 +18,18 @@ export const state = {
 };
 
 export const actions = {
-  [GET_POKEMON_BY_ID]: ({ commit, dispatch }, payload) => {
-    dispatch(POKEMON_IS_LOADING, true);
-    axios
+  [FETCH_POKEMON_BY_ID]: ({ commit }, payload) => {
+    return axios
       .get(`${POKEMON_API_URL}${payload}`)
       .then((result) => {
         commit(SET_POKEMON_DATA, result.data);
       })
       .catch((e) => {
         console.error(e);
-      })
-      .finally(() => {
-        dispatch(POKEMON_IS_LOADING, false);
       });
   },
-  [POKEMON_IS_LOADING]: ({ commit }, payload) => {
-    commit(POKEMON_IS_LOADING, payload);
+  [SET_POKEMON_IS_LOADING]: ({ commit }, payload) => {
+    commit(SET_POKEMON_IS_LOADING, payload);
   },
 };
 
@@ -39,7 +37,7 @@ export const getters = {
   [GET_POKEMON_BY_ID]: (state) => (id) => {
     return state.pokemons.filter((pokemon) => pokemon.number === id);
   },
-  [POKEMON_IS_LOADING]: (state) => {
+  [GET_POKEMON_IS_LOADING]: (state) => {
     return state.isLoading;
   },
   [GET_POKEMONS]: (state) => {
@@ -56,7 +54,7 @@ export const mutations = {
       pokemonsList.sort((a, b) => a.number - b.number)
     );
   },
-  [POKEMON_IS_LOADING]: (state, payload) => {
+  [SET_POKEMON_IS_LOADING]: (state, payload) => {
     state.isLoading = payload;
   },
 };
