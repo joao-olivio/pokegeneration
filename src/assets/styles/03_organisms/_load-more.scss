@@ -28,7 +28,7 @@
     }
 
     &--generations {
-      grid-template-columns: repeat($items-per-row-lg, 1fr);
+      grid-template-columns: repeat($items-per-row-sm, 1fr);
       grid-row-gap: $gutter-md;
       grid-column-gap: $gutter-md;
 
