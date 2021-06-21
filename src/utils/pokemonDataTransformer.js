@@ -12,3 +12,13 @@ export const pokemonDataTransformer = (pokemonData) => {
     url: `${POKEMON_BASE_URL}${pokemonData.name}`,
   };
 };
+
+export const pokemonSpeciesDataTransformer = (pokemonEntry) => {
+  const urlArray = pokemonEntry.url.split("/");
+  const pokemonId = urlArray[urlArray.length - 2];
+
+  return {
+    ...pokemonEntry,
+    id: Number.parseInt(pokemonId),
+  };
+};

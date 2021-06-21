@@ -1,7 +1,19 @@
 .generation-page {
-  .banner {
-    &__background {
-      background-color: $color-blue-chill;
+  &__heading {
+    padding-top: $gutter-xl;
+    margin-bottom: $margin-bottom-lg;
+    
+    .title {
+      margin-bottom: $margin-bottom-sm;
+      color: $color-blue-stone;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: $color-blue-chill;
+      margin-bottom: $margin-bottom-xs;
+      font-weight: 100;
+      font-style: italic;
     }
   }
 }

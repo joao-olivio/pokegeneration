@@ -16,6 +16,7 @@ import {
 } from "../settings";
 
 import { generationDataTransformer } from "../../utils/generationDataTransformer";
+import { Promise } from "core-js";
 
 export const state = {
   generationsList: [],
@@ -24,15 +25,21 @@ export const state = {
 };
 
 export const actions = {
-  [FETCH_GENERATION_DATA]: ({ dispatch, commit }) => {
+  [FETCH_GENERATION_DATA]: ({ dispatch, commit }, callbackFunction) => {
     dispatch(SET_GENERATION_IS_LOADING, true);
     commit(GENERATION_RESET_DATA);
     axios
       .get(`${GENERATION_API_URL}`)
       .then(({ data }) => {
         commit(SET_GENERATIONS_LIST, data.results);
+        const requestList = [];
         data.results.forEach((generation) => {
-          dispatch(FETCH_GENERATION_BY_ID, generation);
+          requestList.push(dispatch(FETCH_GENERATION_BY_ID, generation));
+        });
+        Promise.all(requestList).then(() => {
+          dispatch(SET_GENERATION_IS_LOADING, false);
+
+          if (typeof callbackFunction === "function") callbackFunction();
         });
       })
       .catch((e) => {
@@ -47,16 +54,13 @@ export const actions = {
     commit(SET_GENERATION_IS_LOADING, payload);
   },
   [FETCH_GENERATION_BY_ID]: ({ dispatch }, { url }) => {
-    axios
+    return axios
       .get(`${url}`)
       .then((result) => {
         dispatch(SET_GENERATION_DATA, result.data);
       })
       .catch((e) => {
         console.error(e);
-      })
-      .finally(() => {
-        dispatch(SET_GENERATION_IS_LOADING, false);
       });
   },
 };

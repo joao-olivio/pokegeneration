@@ -18,11 +18,11 @@ export const state = {
 };
 
 export const actions = {
-  [FETCH_POKEMON_BY_ID]: ({ commit }, { generation, pokemon }) => {
+  [FETCH_POKEMON_BY_ID]: ({ commit }, { pokemon }) => {
     return axios
       .get(`${POKEMON_API_URL}${pokemon}`)
       .then((result) => {
-        commit(SET_POKEMON_DATA, { data: result.data, generation });
+        commit(SET_POKEMON_DATA, { data: result.data });
       })
       .catch((e) => {
         console.error(e);
@@ -34,27 +34,25 @@ export const actions = {
 };
 
 export const getters = {
-  [GET_POKEMON_BY_ID]: (state) => (id, generation) => {
-    return state.pokemons[generation].filter(
-      (pokemon) => pokemon.number === id
-    );
+  [GET_POKEMON_BY_ID]: (state) => (id) => {
+    if (!state.pokemons) return [];
+    const filtered = state.pokemons.filter((pokemon) => pokemon.number === id);
+    return filtered[0] ? filtered[0] : [];
   },
   [GET_POKEMON_IS_LOADING]: (state) => {
     return state.isLoading;
   },
-  [GET_POKEMONS]: (state) => (generation) => {
-    return state.pokemons[generation];
+  [GET_POKEMONS]: (state) => {
+    return state.pokemons || [];
   },
 };
 
 export const mutations = {
-  [SET_POKEMON_DATA]: (state, { data, generation }) => {
-    state.pokemons[generation] = state.pokemons[generation] || [];
-    state.pokemons[generation].push(pokemonDataTransformer(data));
+  [SET_POKEMON_DATA]: (state, { data }) => {
+    state.pokemons = state.pokemons || [];
+    state.pokemons.push(pokemonDataTransformer(data));
 
-    state.pokemons[generation] = state.pokemons[generation].sort(
-      (a, b) => a.number - b.number
-    );
+    state.pokemons = state.pokemons.sort((a, b) => a.number - b.number);
 
     Vue.set(state, "pokemons", state.pokemons);
   },

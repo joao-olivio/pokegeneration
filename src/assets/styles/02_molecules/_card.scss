@@ -40,6 +40,7 @@
     
         &__title {
           margin-bottom: $margin-bottom-sm;
+          text-transform: capitalize;
         }
 
         &__badges {

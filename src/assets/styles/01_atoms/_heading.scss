@@ -1,16 +1,21 @@
 .title {
   color: $color-swamp;
 
+  &--h1 {
+    font-size: $font-size-heading-xl;
+    text-align: center;
+
+    @include for-medium {
+      font-size: $font-size-heading-xxl;
+    }
+  }
+
   &--h2 {
     font-size: $font-size-heading-md;
     text-align: center;
 
     @include for-medium {
       font-size: $font-size-heading-lg;
-    }
-
-    @include for-large {
-      font-size: $font-size-heading-xl;
     }
   }
 
@@ -20,15 +25,11 @@
     @include for-medium {
       font-size: $font-size-heading-md;
     }
-
-    @include for-large {
-      font-size: $font-size-heading-lg;
-    }
   }
 }
 
 .small {
-  opacity: $opacity-0-9;
+  opacity: $opacity-0-7;
   color: $color-swamp;
-  font-size: $font-size-label;
+  font-size: $font-size-heading-xs;
 }
