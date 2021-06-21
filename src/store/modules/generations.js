@@ -72,12 +72,11 @@ export const getters = {
     return generation.pokemons;
   },
   [GET_GENERATIONS]: (state) => {
-    console.log(state);
     return state.generations;
   },
   [GET_GENERATION_BY_ID]: (state) => (generationId) => {
     const [generation] = [...state.generations].filter(
-      (generation) => generation.id === generationId
+      (generation) => generation.slug === generationId
     );
     return generation;
   },

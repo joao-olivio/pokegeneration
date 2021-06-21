@@ -1,5 +1,8 @@
 <template>
-  <div>Pokemon Page</div>
+  <main class="pokemon-page">
+    <section class="pokemon-page__heading"></section>
+    <section class="pokemon-page__body"></section>
+  </main>
 </template>
 
 <script>
