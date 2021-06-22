@@ -10,7 +10,7 @@ module.exports = {
   runtimeCompiler: true,
 
   configureWebpack: {
-    plugins: process.env.VUE_PRODUCTION !== "true" ? [FractalInstance] : [],
+    plugins: process.env.VUE_APP_DS === "true" ? [FractalInstance] : [],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src/components"),
@@ -22,7 +22,7 @@ module.exports = {
   filenameHashing: false,
 
   chainWebpack: (config) => {
-    if (!process.env.VUE_PRODUCTION === "true") {
+    if (process.env.VUE_APP_DS === "true") {
       config.optimization.delete("splitChunks");
       config.plugins.delete("html");
       config.plugins.delete("preload");
@@ -33,9 +33,7 @@ module.exports = {
   },
 
   css: {
-    extract: {
-      filename: "/css/[name].css",
-    },
+    extract: true,
     sourceMap: true,
   },
 };

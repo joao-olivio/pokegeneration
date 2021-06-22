@@ -44,6 +44,7 @@ import { FETCH_POKEMON_BY_ID, GET_POKEMON_BY_ID } from "../../store/settings";
 import Badge from "../Badge/Badge.vue";
 
 export default {
+  name: "PokemonCard",
   components: { Card, Badge },
   directives: { lazyload },
   props: {

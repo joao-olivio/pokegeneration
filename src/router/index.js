@@ -13,4 +13,8 @@ const routes = [generation, homepage, pokemon, defaultPath];
 
 export default new VueRouter({
   routes,
+  // eslint-disable-next-line no-unused-vars
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
 });

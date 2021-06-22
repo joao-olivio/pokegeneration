@@ -1,11 +1,13 @@
 import Vue from "vue";
-import App from "./App.vue";
 import store from "./store";
 import router from "./router";
+
+import App from "./App.vue";
 
 import Badge from "./components/Badge/Badge.vue";
 import Card from "./components/Card/Card.vue";
 import LoadMore from "./components/LoadMore/LoadMore.vue";
+import PokemonCard from "./components/PokemonCard/PokemonCard.vue";
 
 import HomepagePage from "./pages/Homepage.vue";
 import GenerationPage from "./pages/Generation.vue";
@@ -24,19 +26,22 @@ Vue.directive(animateOnScroll.name, animateOnScroll);
 Vue.component(Badge.name, Badge);
 Vue.component(Card.name, Card);
 Vue.component(LoadMore.name, LoadMore);
+Vue.component(PokemonCard.name, PokemonCard);
 
 Vue.component(HomepagePage.name, HomepagePage);
 Vue.component(GenerationPage.name, GenerationPage);
 Vue.component(PokemonPage.name, PokemonPage);
 
-new Vue({
-  el: "#app",
-  store,
-  router,
-  components: {
-    App,
-    Badge,
-    Card,
-    LoadMore,
-  },
-});
+if (process.env.VUE_APP_DS === "true") {
+  new Vue({
+    el: "#main-container",
+    store,
+    router,
+  });
+} else {
+  new Vue({
+    store,
+    router,
+    render: (h) => h(App),
+  }).$mount("#app");
+}

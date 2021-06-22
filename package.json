@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "develop": "vue-cli-service build --mode development --watch",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "develop": "VUE_APP_DS=true vue-cli-service build --mode development --watch ",
+    "serve": "VUE_APP_DS=false vue-cli-service serve",
+    "build": "VUE_APP_DS=false VUE_APP_PRODUCTION=true vue-cli-service build",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
@@ -30,9 +30,10 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
+    "fibers": "^5.0.0",
     "prettier": "^2.2.1",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
+    "sass": "^1.35.1",
+    "sass-loader": "^10.2.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
